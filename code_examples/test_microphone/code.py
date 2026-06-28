@@ -40,5 +40,7 @@ while True:
     else:
         # Imprime un recordatorio cada 3 segundos para ver que el código funciona
         if time.monotonic() - ultimo_mensaje_silencio > 3.0:
-            print(f"[Estado: Silencio] El pin flota en {amplitud}. Esperando micrófono...")
+            print(
+                f"[Estado: Silencio] El pin flota en {amplitud}. Esperando micrófono..."
+            )
             ultimo_mensaje_silencio = time.monotonic()

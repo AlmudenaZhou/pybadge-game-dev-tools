@@ -2,6 +2,7 @@
 # InputState — contrato de entrada, igual para todas las plataformas
 # ---------------------------------------------------------------------------
 
+
 class InputState:
     """
     Atributos:

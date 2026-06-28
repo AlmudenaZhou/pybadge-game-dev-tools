@@ -6,7 +6,6 @@ from core.game import Game
 
 
 class DisplayIORenderer(BaseRenderer):
-
     def __init__(self):
         import displayio
         import terminalio
@@ -15,19 +14,17 @@ class DisplayIORenderer(BaseRenderer):
 
         display = pybadger.display
 
-        # Fondo negro
-        bg      = displayio.Bitmap(display.width, display.height, 1)
+        bg = displayio.Bitmap(display.width, display.height, 1)
         palette = displayio.Palette(1)
         palette[0] = 0x000000
 
-        # Etiqueta centrada
         self._label = label.Label(
             terminalio.FONT,
             text="",
             color=0xFFFFFF,
             scale=2,
         )
-        self._label.anchor_point      = (0.5, 0.5)
+        self._label.anchor_point = (0.5, 0.5)
         self._label.anchored_position = (display.width // 2, display.height // 2)
 
         group = displayio.Group()

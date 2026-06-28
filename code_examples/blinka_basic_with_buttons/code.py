@@ -3,7 +3,9 @@
 
 from adafruit_pybadger import pybadger
 
-pybadger.show_badge(name_string="Blinka", hello_scale=2, my_name_is_scale=2, name_scale=3)
+pybadger.show_badge(
+    name_string="Blinka", hello_scale=2, my_name_is_scale=2, name_scale=3
+)
 
 while True:
     pybadger.auto_dim_display(
@@ -21,4 +23,6 @@ while True:
         url = bytes("https://circuitpython.org", "utf-8")
         pybadger.show_qr_code(data=url)
     elif pybadger.button.start:
-        pybadger.show_badge(name_string="Blinka", hello_scale=2, my_name_is_scale=2, name_scale=3)
+        pybadger.show_badge(
+            name_string="Blinka", hello_scale=2, my_name_is_scale=2, name_scale=3
+        )

@@ -6,7 +6,6 @@ from .input_state import InputState
 
 
 class Game:
-
     def __init__(self):
         self.last_pressed: str = "Pulsa un botón"
         self.held_buttons: set[str] = set()
