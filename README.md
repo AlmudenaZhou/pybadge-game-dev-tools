@@ -1,5 +1,81 @@
 # PyBadge Game — Estructura del proyecto
 
+### Relación entre clases
+
+```mermaid
+classDiagram
+    class BaseHardware {
+        +renderer: BaseRenderer
+        +poll() InputState
+        +render(game) delegates to renderer
+    }
+    class PyBadgeHardware {
+        +poll() InputState
+    }
+    class PygameHardware {
+        +poll() InputState
+    }
+    class BaseRenderer {
+        +render(game)
+    }
+    class DisplayIORenderer {
+        +render(game)
+    }
+    class PygameRenderer {
+        +render(game)
+    }
+    class Game {
+        <<abstract>>
+        +update(inp InputState)
+    }
+    class DemoGame {
+        +last_pressed str
+        +held_buttons set
+        +update(inp InputState)
+    }
+    class InputState {
+        +buttons dict
+        +buttons_pressed set
+        +buttons_released set
+        +is_held(btn) bool
+        +just_pressed(btn) bool
+        +just_released(btn) bool
+    }
+
+    BaseHardware <|-- PyBadgeHardware
+    BaseHardware <|-- PygameHardware
+    BaseRenderer <|-- DisplayIORenderer
+    BaseRenderer <|-- PygameRenderer
+    Game <|-- DemoGame
+
+    PyBadgeHardware *-- DisplayIORenderer : compone
+    PygameHardware *-- PygameRenderer : compone
+    BaseHardware --> BaseRenderer : renderer
+
+    BaseHardware ..> InputState : produce
+    Game ..> InputState : consume
+    BaseRenderer ..> Game : lee estado
+```
+
+### Game loop
+
+```mermaid
+flowchart LR
+    POLL["hw.poll()"]
+    INP(["InputState"])
+    UPDATE["game.update(inp)"]
+    GAME(["Game.last_pressed\nGame.held_buttons\n..."])
+    RENDER["hw.render(game)\n→ renderer.render(game)"]
+
+    POLL -->|"produce"| INP
+    INP -->|"consume"| UPDATE
+    UPDATE -->|"actualiza"| GAME
+    GAME -->|"lee estado"| RENDER
+    RENDER -->|"siguiente frame"| POLL
+```
+
+### Estructura de carpetas
+
 ```
 CIRCUITPY/
 │
