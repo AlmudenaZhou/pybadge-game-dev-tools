@@ -1,10 +1,15 @@
 import time
 from games import DemoGame
-from hardware import PyBadgeHardware, PygameHardware
 
 
-# hw = PyBadgeHardware()
-hw = PygameHardware()
+hardware = "pygame"
+
+if hardware == "pybadge":
+    from hardware import PyBadgeHardware
+    hw = PyBadgeHardware()
+elif hardware == "pygame":
+    from hardware import PygameHardware
+    hw = PygameHardware()
 
 game = DemoGame()
 
