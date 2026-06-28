@@ -1,14 +1,17 @@
 from core.input_state import InputState
+from .base import BaseHardware
 
 
-class PygameHardware:
+class PygameHardware(BaseHardware):
     def __init__(self):
         import pygame
+        from renderers.pygame_renderer import PygameRenderer
 
         pygame.init()
         self._pygame = pygame
         self._state = InputState()
         self._prev = dict(self._state.buttons)
+        self.renderer = PygameRenderer()
         self._keymap = {
             pygame.K_z: "A",
             pygame.K_x: "B",

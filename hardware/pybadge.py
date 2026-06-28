@@ -20,9 +20,11 @@ class PyBadgeHardware(BaseHardware):
 
     def __init__(self):
         from adafruit_pybadger import pybadger
+        from renderers.displayio_renderer import DisplayIORenderer
 
         self._hw = pybadger
         self._prev: dict[str, bool] = {name: False for name in self._BUTTON_ATTRS}
+        self.renderer = DisplayIORenderer()
 
     def poll(self) -> InputState:
         b = self._hw.button

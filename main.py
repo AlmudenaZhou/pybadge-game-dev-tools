@@ -1,17 +1,10 @@
 import time
 from games import DemoGame
 from hardware import PyBadgeHardware, PygameHardware
-from renderers import DisplayIORenderer, PygameRenderer
 
 
-hardware = "pygame"
-
-if hardware == "pybadge":
-    hw = PyBadgeHardware()
-    renderer = DisplayIORenderer()
-elif hardware == "pygame":
-    hw = PygameHardware()
-    renderer = PygameRenderer()
+# hw = PyBadgeHardware()
+hw = PygameHardware()
 
 game = DemoGame()
 
@@ -23,7 +16,7 @@ while True:
 
     inp = hw.poll()
     game.update(inp)
-    renderer.render(game)
+    hw.render(game)
 
     elapsed = time.monotonic() - frame_start
     remaining = FRAME_TIME - elapsed
