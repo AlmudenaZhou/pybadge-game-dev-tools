@@ -2,7 +2,7 @@
 # Renderer — cada plataforma dibuja a su manera
 # ---------------------------------------------------------------------------
 from .base import BaseRenderer
-from core.game import Game
+from games import Game
 
 
 class DisplayIORenderer(BaseRenderer):

@@ -1,10 +1,10 @@
 import time
-from core import Game
+from games import DemoGame
 from hardware import PyBadgeHardware, PygameHardware
 from renderers import DisplayIORenderer, PygameRenderer
 
 
-hardware = "pybadge"
+hardware = "pygame"
 
 if hardware == "pybadge":
     hw = PyBadgeHardware()
@@ -13,7 +13,7 @@ elif hardware == "pygame":
     hw = PygameHardware()
     renderer = PygameRenderer()
 
-game = Game()
+game = DemoGame()
 
 TARGET_FPS = 60
 FRAME_TIME = 1 / TARGET_FPS

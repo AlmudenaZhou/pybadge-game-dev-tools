@@ -2,10 +2,11 @@
 # Game — lógica pura, sin display, sin hardware
 # ---------------------------------------------------------------------------
 
-from .input_state import InputState
+from core.input_state import InputState
+from .base import Game
 
 
-class Game:
+class DemoGame(Game):
     def __init__(self):
         self.last_pressed: str = "Pulsa un botón"
         self.held_buttons: set[str] = set()

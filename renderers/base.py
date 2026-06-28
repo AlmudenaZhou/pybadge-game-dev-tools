@@ -1,4 +1,4 @@
-from core.game import Game
+from games import Game
 
 
 class BaseRenderer:
