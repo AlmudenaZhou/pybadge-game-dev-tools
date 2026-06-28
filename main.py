@@ -2,7 +2,7 @@ import time
 from games import DemoGame
 
 
-hardware = "pygame"
+hardware = "pybadge"
 
 if hardware == "pybadge":
     from hardware import PyBadgeHardware
