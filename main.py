@@ -4,7 +4,7 @@ from hardware import PyBadgeHardware, PygameHardware
 from renderers import DisplayIORenderer, PygameRenderer
 
 
-hardware = "pygame"
+hardware = "pybadge"
 
 if hardware == "pybadge":
     hw = PyBadgeHardware()
