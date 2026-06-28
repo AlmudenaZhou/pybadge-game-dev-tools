@@ -38,7 +38,7 @@ class PyBadgeHardware:
         self._prev = dict(self._state.buttons)
 
     def poll(self):
-        b = self._hw.button_values
+        b = self._hw.button
         buttons = {
             "A": b.a, "B": b.b,
             "UP": b.up, "DOWN": b.down,
